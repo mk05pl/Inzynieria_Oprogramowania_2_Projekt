@@ -1,0 +1,191 @@
+@startuml diagram_klas
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+
+skinparam class {
+  BackgroundColor #DEEAF1
+  BorderColor #2E75B6
+  HeaderBackgroundColor #2E75B6
+  FontColor #000000
+  AttributeFontColor #000000
+  AttributeFontSize 11
+  StereotypeFontColor #FFFFFF
+}
+
+skinparam enum {
+  BackgroundColor #FFF2CC
+  BorderColor #ED7D31
+  HeaderBackgroundColor #ED7D31
+  FontColor #000000
+}
+
+skinparam ArrowColor #2E75B6
+skinparam ArrowFontName Arial
+skinparam ArrowFontSize 11
+skinparam classAttributeIconSize 0
+
+title Diagram klas – Model domenowy\ncinema.model + cinema.service
+
+
+package "cinema.model" #F5F9FF {
+
+  class Film {
+    - id : String
+    - title : String
+    - durationMinutes : int
+    --
+    + Film(title : String, durationMinutes : int)
+    + getId() : String
+    + getTitle() : String
+    + getDurationMinutes() : int
+  }
+
+  class Hall {
+    - id : String
+    - name : String
+    - capacity : int
+    --
+    + Hall(id : String, name : String, capacity : int)
+    + getId() : String
+    + getName() : String
+    + getCapacity() : int
+  }
+
+  class Seat {
+    - row : int
+    - number : int
+    - reserved : boolean
+    - premium : boolean
+    --
+    + Seat(row : int, number : int)
+    + Seat(row : int, number : int, premium : boolean)
+    + reserve() : void
+    + release() : void
+    + isReserved() : boolean
+    + isPremium() : boolean
+  }
+
+  abstract class User {
+    - id : String
+    - username : String
+    - password : String
+    --
+    + authenticate(username, password) : boolean
+    + getId() : String
+    + getUsername() : String
+    + getPassword() : String
+  }
+
+  class Customer {
+    - tickets : List<Ticket>
+    --
+    + addTicket(t : Ticket) : void
+    + removeTicket(t : Ticket) : boolean
+    + getTickets() : List<Ticket>
+  }
+
+  class Employee {
+  }
+
+  class Manager {
+  }
+
+  enum TicketStatus {
+    PURCHASED
+    RESERVED
+    RETURNED
+  }
+
+  class Ticket {
+    - id : String
+    - screening : Screening
+    - seat : Seat
+    - price : float
+    - owner : User
+    - status : TicketStatus
+    --
+    + Ticket(screening, seat, price, owner)
+    + Ticket(screening, seat, price, owner, status)
+    + refund() : void
+    + getId() : String
+    + getScreening() : Screening
+    + getSeat() : Seat
+    + getPrice() : float
+    + setPrice(price : float) : void
+    + getOwner() : User
+    + getStatus() : TicketStatus
+  }
+
+  class Screening {
+    - id : String
+    - film : Film
+    - hall : Hall
+    - start : LocalDateTime
+    - end : LocalDateTime
+    - seats : List<Seat>
+    - is3D : boolean
+    --
+    + Screening(film, hall, start, end)
+    + Screening(film, hall, start, end, is3D)
+    + isConflictWith(other : Screening) : boolean
+    + checkAvailability() : boolean
+    + reserveSeat(seatNumber : int) : boolean
+    + getSeat(seatNumber : int) : Optional<Seat>
+    + getFilm() : Film
+    + getHall() : Hall
+    + getStart() : LocalDateTime
+    + getEnd() : LocalDateTime
+    + getSeats() : List<Seat>
+    + is3D() : boolean
+  }
+
+}
+
+package "cinema.service" #FAF5FF {
+
+  class CinemaSystem <<Singleton>> {
+    - {static} instance : CinemaSystem
+    - screenings : List<Screening>
+    - users : List<User>
+    --
+    + {static} getInstance() : CinemaSystem
+    + {static} resetInstance() : void
+    + addScreening(screening : Screening) : void
+    + isHallAvailable(hall, start, end) : boolean
+    + findScreening(id : String) : Optional<Screening>
+    + getScreenings() : List<Screening>
+    + addUser(user : User) : void
+    + findUser(username : String) : Optional<User>
+    + authenticate(username, password) : Optional<User>
+  }
+
+}
+
+' Dziedziczenie
+User <|-- Customer
+User <|-- Employee
+User <|-- Manager
+
+' Kompozycja: Screening zawiera Seat
+Screening "1" *-- "1..*" Seat : zawiera >
+
+' Asocjacje Screening
+Screening "0..*" --> "1" Film : dotyczy >
+Screening "0..*" --> "1" Hall : odbywa sie w >
+
+' Asocjacje Ticket
+Ticket "0..*" --> "1" Screening  : na seans >
+Ticket "0..*" --> "1" Seat       : na miejsce >
+Ticket "0..*" --> "1" User       : wlasciciel >
+Ticket        ..>      TicketStatus : <<use>>
+
+' Agregacja Customer
+Customer "1" o-- "0..*" Ticket : posiada >
+
+' CinemaSystem
+CinemaSystem "1" o-- "0..*" Screening : zarzadza >
+CinemaSystem "1" o-- "0..*" User      : przechowuje >
+
+@enduml
