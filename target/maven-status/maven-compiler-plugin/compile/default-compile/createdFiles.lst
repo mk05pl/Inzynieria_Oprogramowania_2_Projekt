@@ -1,0 +1,12 @@
+cinema/model/Screening.class
+cinema/model/Customer.class
+cinema/model/Ticket$TicketStatus.class
+cinema/model/Seat.class
+cinema/Main.class
+cinema/service/CinemaSystem.class
+cinema/model/Employee.class
+cinema/model/Manager.class
+cinema/model/User.class
+cinema/model/Film.class
+cinema/model/Ticket.class
+cinema/model/Hall.class
