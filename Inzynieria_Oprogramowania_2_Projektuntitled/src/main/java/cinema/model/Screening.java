@@ -46,7 +46,7 @@ public class Screening {
         }
     }
 
-    //Logika biznesowa
+    // ── Logika biznesowa ──────────────────────────────────────────────────
 
     /**
      * Sprawdza czy ten seans koliduje czasowo z innym seansem w tej samej sali.
