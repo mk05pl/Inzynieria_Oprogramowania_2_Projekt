@@ -9,10 +9,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-/**
- * Repozytorium seansów – operacje CRUD przez JDBC.
- * Autor: Krzysztof Wysocki
- */
+
 public class ScreeningRepository {
 
     private final Connection conn;
@@ -23,9 +20,7 @@ public class ScreeningRepository {
 
     // ── Odczyt ───────────────────────────────────────────────────────────
 
-    /**
-     * Zwraca wszystkie seanse z bazy wraz z filmem i salą.
-     */
+
     public List<ScreeningRecord> findAll() throws SQLException {
         String sql = """
                 SELECT s.id, s.start_time, s.end_time, s.is_3d,
@@ -44,9 +39,7 @@ public class ScreeningRepository {
         return list;
     }
 
-    /**
-     * Zwraca seanse z przyszłą datą i przynajmniej jednym wolnym miejscem.
-     */
+
     public List<ScreeningRecord> findAvailable() throws SQLException {
         String sql = """
                 SELECT s.id, s.start_time, s.end_time, s.is_3d,
@@ -70,9 +63,7 @@ public class ScreeningRepository {
         return list;
     }
 
-    /**
-     * Sprawdza czy sala jest wolna w podanym przedziale – używane przez Builder.
-     */
+
     public boolean isHallAvailable(String hallId, LocalDateTime start, LocalDateTime end)
             throws SQLException {
         String sql = """
@@ -94,11 +85,7 @@ public class ScreeningRepository {
 
     // ── Zapis ────────────────────────────────────────────────────────────
 
-    /**
-     * Zapisuje nowy seans i generuje miejsca w jednej transakcji.
-     *
-     * @return id nowo utworzonego seansu
-     */
+
     public String save(Film film, Hall hall, LocalDateTime start, LocalDateTime end,
                        boolean is3D) throws SQLException {
         String screeningId = UUID.randomUUID().toString();
@@ -180,9 +167,7 @@ public class ScreeningRepository {
 
     // ── DTO ──────────────────────────────────────────────────────────────
 
-    /**
-     * Prosta struktura danych reprezentująca seans odczytany z bazy.
-     */
+
     public record ScreeningRecord(
             String id,
             Film film,

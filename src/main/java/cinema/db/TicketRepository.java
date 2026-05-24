@@ -5,10 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Repozytorium biletów – zakup, zwrot i odczyt przez JDBC.
- * Autor: Krzysztof Wysocki
- */
+
 public class TicketRepository {
 
     private final Connection conn;

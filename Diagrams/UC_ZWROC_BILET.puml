@@ -75,7 +75,7 @@ alt user IS INSTANCE OF CUSTOMER
   end
 
 else NOT CUSTOMER [A1]
-  F --> K: ❌ false\n**A1: Tylko klienci zwracają**\nuser nie jest instancją Customer
+  F --> K: false\n**A1: Tylko klienci zwracają**\nuser nie jest instancją Customer
   note right of K
     Zalogowany użytkownik to
     pracownik lub menedżer
@@ -84,13 +84,6 @@ end
 
 deactivate F
 
-note bottom of K
-  **Podsumowanie:**
-  Przepływ główny: Bilet zwrócony
-  A1: Użytkownik nie jest klientem
-  A2: Bilet już wcześniej zwrócony
-  A3: Bilet nie należy do tego klienta
-end note
 
 @enduml
 

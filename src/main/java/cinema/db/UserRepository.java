@@ -8,10 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-/**
- * Repozytorium użytkowników – uwierzytelnianie, wyszukiwanie, rejestracja.
- * Autor: Krzysztof Wysocki
- */
+
 public class UserRepository {
 
     private final Connection conn;
@@ -43,10 +40,6 @@ public class UserRepository {
         return Optional.empty();
     }
 
-    /**
-     * Uwierzytelnia użytkownika.
-     * UWAGA: produkcja wymaga BCrypt – tu plain text (demo).
-     */
     public Optional<User> authenticate(String username, String password) throws SQLException {
         String sql = "SELECT id, username, password, role FROM users WHERE username = ?";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -59,9 +52,7 @@ public class UserRepository {
         }
     }
 
-    /**
-     * Rejestruje nowego użytkownika. Zwraca wygenerowane id.
-     */
+
     public String register(String username, String password, String role) throws SQLException {
         String id  = UUID.randomUUID().toString();
         String sql = "INSERT INTO users (id, username, password, role) VALUES (?, ?, ?, ?)";

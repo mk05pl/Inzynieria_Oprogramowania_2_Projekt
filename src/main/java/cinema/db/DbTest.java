@@ -6,15 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Szybki test połączenia z bazą – uruchom żeby sprawdzić czy działa.
- *
- * Przed uruchomieniem:
- *   1. Upewnij się że MySQL działa i baza cinema_db istnieje
- *      (uruchom skrypt cinema_km1.sql)
- *   2. Ustaw login/hasło w DatabaseConnection.java (domyślnie root/root)
- *   3. Uruchom: mvn compile exec:java -Dexec.mainClass="cinema.db.DbTest"
- */
+
 public class DbTest {
 
     public static void main(String[] args) {

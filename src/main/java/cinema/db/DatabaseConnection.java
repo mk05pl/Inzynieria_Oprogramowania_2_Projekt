@@ -4,19 +4,23 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- * Połączenie z bazą danych MySQL – Singleton.
- * Autor: Krzysztof Wysocki
- */
+
 public class DatabaseConnection {
 
     private static final String URL      = "jdbc:mysql://localhost:3306/cinema_db"
                                          + "?useSSL=false&serverTimezone=UTC&characterEncoding=utf8";
-    private static final String USER     = "root";      // zmień na swojego użytkownika
-    private static final String PASSWORD = "root";      // zmień na swoje hasło
-
+    private static final String USER     = "root";
+    private static final String PASSWORD = "";
     private static DatabaseConnection instance;
     private Connection connection;
+
+    static {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new ExceptionInInitializerError("Brak sterownika MySQL: " + e.getMessage());
+        }
+    }
 
     private DatabaseConnection() {
         try {
