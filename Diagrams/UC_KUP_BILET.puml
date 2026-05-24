@@ -1,0 +1,101 @@
+@startuml uc_kup_bilet
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam sequenceArrowThickness 2
+skinparam noteBkgColor #FFFACD
+
+title UC: KUP BILET\nPrzepływ główny + alternatywny
+
+actor "Klient" as K
+participant "CinemaSystemFacade" as F
+participant "CinemaSystem" as S
+participant "Screening" as Scr
+participant "Ticket" as T
+participant "Customer" as C
+
+K -> F: buyTicket(customer, screeningId, seatNumber)
+activate F
+note right of F: Początek procesu kupienia biletu
+
+F -> S: findScreening(screeningId)
+activate S
+S --> F: Optional<Screening>
+deactivate S
+
+alt screening IS FOUND
+  note right of F: Przepływ główny
+
+  F -> Scr: checkAvailability()
+  activate Scr
+  Scr --> F: boolean
+  deactivate Scr
+
+  alt SEATS AVAILABLE
+
+    F -> Scr: reserveSeat(seatNumber)
+    activate Scr
+    Scr --> F: boolean
+    deactivate Scr
+
+    alt SEAT NOT RESERVED
+
+      F -> Scr: getSeat(seatNumber)
+      activate Scr
+      Scr --> F: Optional<Seat>
+      deactivate Scr
+
+      F -> T: new Ticket(screening, seat, 20.0f, customer)
+      activate T
+      T --> F: ticket
+      deactivate T
+
+      F -> C: addTicket(ticket)
+      activate C
+      C --> F: OK
+      deactivate C
+
+      F --> K: ✅ Ticket zakupiony\n(id, seans, miejsce, cena)
+      note right of K
+        STATUS: PURCHASED
+        Miejsce: zarezerwowane
+        Pieniądze: pobrane
+      end note
+
+    else SEAT ALREADY RESERVED [A3]
+      F --> K: ❌ null\n**A3: Miejsce zajęte**\nInne miejsce zmieniło status
+      note right of K
+        Użytkownik musi wybrać
+        inne miejsce
+      end note
+    end
+
+  else NO AVAILABLE SEATS [A2]
+    F --> K: ❌ null\n**A2: Brak wolnych miejsc**\nWszystkie miejsca zarezerwowane
+    note right of K
+      Brak dostępnych miejsc
+      na wybrany seans
+    end note
+  end
+
+else SCREENING NOT FOUND [A1]
+  F --> K: ❌ null\n**A1: Seans nie znaleziony**\nPodany ID nie istnieje w systemie
+  note right of K
+    Seans o podanym ID
+    nie został znaleziony
+  end note
+end
+
+deactivate F
+
+note bottom of K
+  **Podsumowanie:**
+  Przepływ główny: Bilet kupiony
+  A1: Seans nie istnieje
+  A2: Brak wolnych miejsc
+  A3: Wybrane miejsce zajęte
+end note
+
+@enduml
+

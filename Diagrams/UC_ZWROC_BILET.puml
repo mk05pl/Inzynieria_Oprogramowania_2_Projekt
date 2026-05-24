@@ -1,0 +1,96 @@
+@startuml uc_zwroc_bilet
+
+skinparam backgroundColor #FFFFFF
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam sequenceArrowThickness 2
+skinparam noteBkgColor #FFFACD
+
+title UC: ZWRÓĆ BILET\nPrzepływ główny + alternatywny
+
+actor "Klient" as K
+participant "CinemaSystemFacade" as F
+participant "Customer" as C
+participant "Ticket" as T
+participant "Seat" as S
+
+K -> F: refundTicket(customer, ticket)
+activate F
+note right of F: Początek procesu zwrotu biletu
+
+alt user IS INSTANCE OF CUSTOMER
+  note right of F: Przepływ główny
+
+  F -> C: getTickets()
+  activate C
+  C --> F: List<Ticket>
+  deactivate C
+
+  alt TICKET BELONGS TO CUSTOMER
+
+    F -> T: refund()
+    activate T
+    note right of T: Sprawdź czy status ≠ RETURNED
+
+    alt TICKET NOT YET RETURNED
+
+      T -> S: release()
+      activate S
+      S --> T: OK (miejsce zwolnione)
+      deactivate S
+
+      note right of T: Status zmienia się na RETURNED
+      T --> F: ✅ OK
+      deactivate T
+
+      F -> C: removeTicket(ticket)
+      activate C
+      C --> F: boolean
+      deactivate C
+
+      F --> K: ✅ true\nBilet zwrócony pomyślnie
+      note right of K
+        STATUS: RETURNED
+        Miejsce: zwolnione
+        Pieniądze: zwrócone
+      end note
+
+    else TICKET ALREADY RETURNED [A2]
+      T --> F: ❌ IllegalStateException\n**A2: Bilet już zwrócony**
+      note right of T
+        Status = RETURNED
+        Nie można zwrócić
+        co już zwrócono
+      end note
+      deactivate T
+      F --> K: ❌ false
+    end
+
+  else TICKET NOT BELONGS TO CUSTOMER [A3]
+    F --> K: ❌ false\n**A3: Bilet nie należy do Ciebie**\nTicket nie w liście customer.getTickets()
+    note right of K
+      Klient próbuje zwrócić
+      bilet innego użytkownika
+    end note
+  end
+
+else NOT CUSTOMER [A1]
+  F --> K: ❌ false\n**A1: Tylko klienci zwracają**\nuser nie jest instancją Customer
+  note right of K
+    Zalogowany użytkownik to
+    pracownik lub menedżer
+  end note
+end
+
+deactivate F
+
+note bottom of K
+  **Podsumowanie:**
+  Przepływ główny: Bilet zwrócony
+  A1: Użytkownik nie jest klientem
+  A2: Bilet już wcześniej zwrócony
+  A3: Bilet nie należy do tego klienta
+end note
+
+@enduml
+
