@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="cinema.CinemaSystemTest" time="0.111" tests="29" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1250"/>
+    <property name="java.class.path" value="D:\Dokumenty i studia\Kowalski\Inzynieria_Oprogramowania_2_Projekt\target\test-classes;D:\Dokumenty i studia\Kowalski\Inzynieria_Oprogramowania_2_Projekt\target\classes;C:\Users\Michal\.m2\repository\com\mysql\mysql-connector-j\9.6.0\mysql-connector-j-9.6.0.jar;C:\Users\Michal\.m2\repository\com\google\protobuf\protobuf-java\4.31.1\protobuf-java-4.31.1.jar;C:\Users\Michal\.m2\repository\org\junit\jupiter\junit-jupiter\6.1.0-M1\junit-jupiter-6.1.0-M1.jar;C:\Users\Michal\.m2\repository\org\junit\jupiter\junit-jupiter-api\6.1.0-M1\junit-jupiter-api-6.1.0-M1.jar;C:\Users\Michal\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Michal\.m2\repository\org\junit\platform\junit-platform-commons\6.1.0-M1\junit-platform-commons-6.1.0-M1.jar;C:\Users\Michal\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Michal\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\Michal\.m2\repository\org\junit\jupiter\junit-jupiter-params\6.1.0-M1\junit-jupiter-params-6.1.0-M1.jar;C:\Users\Michal\.m2\repository\org\junit\jupiter\junit-jupiter-engine\6.1.0-M1\junit-jupiter-engine-6.1.0-M1.jar;C:\Users\Michal\.m2\repository\org\junit\platform\junit-platform-engine\6.1.0-M1\junit-platform-engine-6.1.0-M1.jar;"/>
+    <property name="java.vm.vendor" value="Microsoft"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://www.microsoft.com"/>
+    <property name="user.timezone" value="Europe/Warsaw"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="PL"/>
+    <property name="sun.boot.library.path" value="C:\Users\Michal\.jdks\ms-17.0.19\bin"/>
+    <property name="sun.java.command" value="C:\Users\Michal\AppData\Local\Temp\surefire1814835047878707599\surefirebooter-20260613000655878_3.jar C:\Users\Michal\AppData\Local\Temp\surefire1814835047878707599 2026-06-13T00-06-55_139-jvmRun1 surefire-20260613000655878_1tmp surefire_0-20260613000655878_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="D:\Dokumenty i studia\Kowalski\Inzynieria_Oprogramowania_2_Projekt\target\test-classes;D:\Dokumenty i studia\Kowalski\Inzynieria_Oprogramowania_2_Projekt\target\classes;C:\Users\Michal\.m2\repository\com\mysql\mysql-connector-j\9.6.0\mysql-connector-j-9.6.0.jar;C:\Users\Michal\.m2\repository\com\google\protobuf\protobuf-java\4.31.1\protobuf-java-4.31.1.jar;C:\Users\Michal\.m2\repository\org\junit\jupiter\junit-jupiter\6.1.0-M1\junit-jupiter-6.1.0-M1.jar;C:\Users\Michal\.m2\repository\org\junit\jupiter\junit-jupiter-api\6.1.0-M1\junit-jupiter-api-6.1.0-M1.jar;C:\Users\Michal\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Michal\.m2\repository\org\junit\platform\junit-platform-commons\6.1.0-M1\junit-platform-commons-6.1.0-M1.jar;C:\Users\Michal\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Michal\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\Michal\.m2\repository\org\junit\jupiter\junit-jupiter-params\6.1.0-M1\junit-jupiter-params-6.1.0-M1.jar;C:\Users\Michal\.m2\repository\org\junit\jupiter\junit-jupiter-engine\6.1.0-M1\junit-jupiter-engine-6.1.0-M1.jar;C:\Users\Michal\.m2\repository\org\junit\platform\junit-platform-engine\6.1.0-M1\junit-platform-engine-6.1.0-M1.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\Michal"/>
+    <property name="user.language" value="pl"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2026-04-21"/>
+    <property name="java.home" value="C:\Users\Michal\.jdks\ms-17.0.19"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="D:\Dokumenty i studia\Kowalski\Inzynieria_Oprogramowania_2_Projekt"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\Michal\AppData\Local\Temp\surefire1814835047878707599\surefirebooter-20260613000655878_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.19+10-LTS"/>
+    <property name="user.name" value="Michal"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="Cp1250"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Microsoft-13877129"/>
+    <property name="localRepository" value="C:\Users\Michal\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/microsoft/openjdk/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\Michal\AppData\Local\Temp\"/>
+    <property name="java.version" value="17.0.19"/>
+    <property name="user.dir" value="D:\Dokumenty i studia\Kowalski\Inzynieria_Oprogramowania_2_Projekt"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1250"/>
+    <property name="java.library.path" value="C:\Users\Michal\.jdks\ms-17.0.19\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Users\Michal\.jdks\ms-17.0.19\bin;C:\Users\Michal\.codex\tmp\arg0\codex-arg0Kpkrf8;C:\Users\Michal\AppData\Local\JetBrains\IntelliJIdea2026.1\acp-agents\.runtimes\node\24.13.0\npm-cache\_npx\6722ddab116cb282\node_modules\@openai\codex-win32-x64\vendor\x86_64-pc-windows-msvc\codex-path;C:\Users\Michal\AppData\Local\JetBrains\IntelliJIdea2026.1\acp-agents\.runtimes\node\24.13.0\npm-cache\_npx\6722ddab116cb282\node_modules\.bin;D:\Dokumenty i studia\Kowalski\Inzynieria_Oprogramowania_2_Projekt\node_modules\.bin;D:\Dokumenty i studia\Kowalski\node_modules\.bin;D:\Dokumenty i studia\node_modules\.bin;D:\node_modules\.bin;C:\Users\Michal\AppData\Local\JetBrains\IntelliJIdea2026.1\acp-agents\.runtimes\node\24.13.0\bin\node_modules\npm\node_modules\@npmcli\run-script\lib\node-gyp-bin;C:\Users\Michal\anaconda3\condabin;C:\Users\Michal\AppData\Local\JetBrains\IntelliJIdea2026.1\acp-agents\.runtimes\node\24.13.0\bin;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Tailscale\;C:\Program Files\PuTTY\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\GitExtensions\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Docker\Docker\resources\bin;C:\Users\Michal\AppData\Local\Programs\Streamlink\bin;C:\Users\Michal\AppData\Local\Programs\Python\Python313\Scripts\;C:\Users\Michal\AppData\Local\Programs\Python\Python313\;C:\Users\Michal\AppData\Local\Programs\Python\Launcher\;C:\Users\Michal\AppData\Local\Microsoft\WindowsApps;C:\Users\Michal\AppData\Local\Programs\Microsoft VS Code\bin;C:\texlive\2025\bin\windows;D:\Programy\iperf3.19_64;C:\Users\Michal\anaconda3;C:\Users\Michal\anaconda3\Scripts;C:\Users\Michal\.dotnet\tools;C:\Users\Michal\.lmstudio\bin;C:\Users\Michal\AppData\Roaming\npm;C:\Users\Michal\.dotnet\tools;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Microsoft"/>
+    <property name="java.vm.version" value="17.0.19+10-LTS"/>
+    <property name="java.specification.maintenance.version" value="1"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+  </properties>
+  <testcase name="testFilm" classname="cinema.CinemaSystemTest" time="0.067"/>
+  <testcase name="testHall" classname="cinema.CinemaSystemTest" time="0.001"/>
+  <testcase name="testSeatInitiallyFree" classname="cinema.CinemaSystemTest" time="0.002"/>
+  <testcase name="testSeatReserve" classname="cinema.CinemaSystemTest" time="0.0"/>
+  <testcase name="testSeatRelease" classname="cinema.CinemaSystemTest" time="0.001"/>
+  <testcase name="testSeatDoubleReserveThrows" classname="cinema.CinemaSystemTest" time="0.001"/>
+  <testcase name="testUserInheritance" classname="cinema.CinemaSystemTest" time="0.002"/>
+  <testcase name="testCustomerTickets" classname="cinema.CinemaSystemTest" time="0.002"/>
+  <testcase name="testSeatsGenerated" classname="cinema.CinemaSystemTest" time="0.0"/>
+  <testcase name="testPremiumSeats" classname="cinema.CinemaSystemTest" time="0.001"/>
+  <testcase name="testCheckAvailabilityInitial" classname="cinema.CinemaSystemTest" time="0.0"/>
+  <testcase name="testReserveSeat" classname="cinema.CinemaSystemTest" time="0.001"/>
+  <testcase name="testReserveSeatAlreadyTaken" classname="cinema.CinemaSystemTest" time="0.0"/>
+  <testcase name="testGetSeatMissing" classname="cinema.CinemaSystemTest" time="0.001"/>
+  <testcase name="testConflictSameHallOverlap" classname="cinema.CinemaSystemTest" time="0.001"/>
+  <testcase name="testNoConflictDifferentHall" classname="cinema.CinemaSystemTest" time="0.001"/>
+  <testcase name="testNoConflictSequential" classname="cinema.CinemaSystemTest" time="0.0"/>
+  <testcase name="testTicketPurchased" classname="cinema.CinemaSystemTest" time="0.0"/>
+  <testcase name="testTicketRefund" classname="cinema.CinemaSystemTest" time="0.001"/>
+  <testcase name="testTicketDoubleRefund" classname="cinema.CinemaSystemTest" time="0.001"/>
+  <testcase name="testSingleton" classname="cinema.CinemaSystemTest" time="0.0"/>
+  <testcase name="testAddScreening" classname="cinema.CinemaSystemTest" time="0.001"/>
+  <testcase name="testHallAvailableEmpty" classname="cinema.CinemaSystemTest" time="0.0"/>
+  <testcase name="testHallUnavailableOnConflict" classname="cinema.CinemaSystemTest" time="0.001"/>
+  <testcase name="testHallAvailableDifferentHall" classname="cinema.CinemaSystemTest" time="0.0"/>
+  <testcase name="testAddScreeningConflictThrows" classname="cinema.CinemaSystemTest" time="0.001"/>
+  <testcase name="testAuthenticateOk" classname="cinema.CinemaSystemTest" time="0.0"/>
+  <testcase name="testAuthenticateFail" classname="cinema.CinemaSystemTest" time="0.001"/>
+  <testcase name="testAuthenticateUnknownUser" classname="cinema.CinemaSystemTest" time="0.0"/>
+</testsuite>
